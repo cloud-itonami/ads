@@ -1,0 +1,13 @@
+{:body "# Vendor retained — 規制対応 (Regulatory compliance)
+
+**Entity**: gftd (vendor)
+
+**Regulatory basis**:
+- ads: 景品表示法・特定商取引法 / Settlement (ad billing)
+- stripe: PCI-DSS v4 / Settlement (card management)
+- oshikatsu: 資金決済法 / Settlement (subscription/tips)
+
+**3-axis result**: Settlement 軸 hit
+
+gftd operates this service. etzhayyim does not hold this.
+"}

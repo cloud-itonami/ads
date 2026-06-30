@@ -1,0 +1,36 @@
+{
+  "name": "magatama-adsm4d5c",
+  "main": "svelte/.svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2025-03-17",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "nodejs_als"
+  ],
+  "vars": {
+    "APP_CAPABILITIES": "[\"bpmn-dispatch\",\"createCampaign\",\"postSponsored\",\"listCampaigns\"]",
+    "APP_DESCRIPTION": "Sponsored-post clearing agent for yoro. Issues path-based advertiser DIDs and publishes `!ad`-labeled app.bsky.feed.post records.",
+    "APP_DISPLAY_NAME": "GFTD Ads",
+    "APP_EMBED_URL": "https://adsm4d5c.gftd.ai/?embed=1",
+    "APP_FRAMEWORK": "sveltekit-edge-bff",
+    "APP_NANOID": "adsm4d5c",
+    "APP_PERFORMER_TYPE": "service",
+    "APP_UI_TYPE": "appview",
+    "AGENTGATEWAY_MCP_ROUTER_URL": "https://mcp.gftd.ai/xrpc/ai.gftd.mcp.message"
+  },
+  "routes": [
+    {
+      "pattern": "adsm4d5c.gftd.ai/*",
+      "zone_name": "gftd.ai"
+    },
+    {
+      "pattern": "ads.gftd.ai/*",
+      "zone_name": "gftd.ai"
+    }
+  ],
+  "assets": {
+    "directory": "./svelte/.svelte-kit/cloudflare/client",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}

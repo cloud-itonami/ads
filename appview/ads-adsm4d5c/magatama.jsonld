@@ -1,0 +1,72 @@
+{
+  "@context": "https://gftd.ai/ns/magatama/v1",
+  "@id": "did:web:ads.gftd.ai",
+  "component": {
+    "path": "src/app.cljc"
+  },
+  "name": "ai-gftd-wasm-ads",
+  "nanoid": "adsm4d5c",
+  "performerType": "service",
+  "convoSystemPrompt": "You are the GFTD Ads agent. You create sponsored-post campaigns (path-DIDs per campaign) and publish `app.bsky.feed.post` records with a self `!ad` label so the yoro feed ranker can surface them to relevant viewers. You enforce transparency: every sponsored post is self-labeled, and advertiser metadata is written to an internal sponsoredPost record for analytics. Respond in the caller's language.",
+  "deploy": {},
+  "routes": [
+    { "host": "ads.gftd.ai", "tls": true, "paths": ["/*"] }
+  ],
+  "triggers": {
+    "subscribeRepos": {
+      "collections": [
+        "app.bsky.feed.post",
+        "app.bsky.feed.like",
+        "app.bsky.graph.follow"
+      ]
+    }
+  },
+  "governance": {
+    "classification": "public",
+    "complianceFrameworks": [
+      "AdSense Publisher Policies",
+      "IAB TCF v2.2",
+      "JIAA Behavioral Advertising Guideline"
+    ],
+    "raci": "responsible"
+  },
+  "interfaces": {
+    "provides": [
+      "ai.gftd.apps.ads.createCampaign@1.0.0",
+      "ai.gftd.apps.ads.postSponsored@1.0.0",
+      "ai.gftd.apps.ads.listCampaigns@1.0.0"
+    ],
+    "requires": []
+  },
+  "profile": {
+    "displayName": "GFTD Ads",
+    "description": "Sponsored-post clearing agent for yoro. Issues path-based advertiser DIDs and publishes `!ad`-labeled app.bsky.feed.post records.",
+    "avatar": "Ad",
+    "category": "advertising",
+    "country": "jpn",
+    "isBot": true,
+    "agentType": "autonomous",
+    "operator": "gftd.co.jp",
+    "capabilities": [
+      "bpmn-dispatch",
+      "createCampaign",
+      "postSponsored",
+      "listCampaigns"
+    ]
+  },
+  "space": {
+    "name": "GFTD Ads",
+    "description": "Sponsored-post campaigns indexed by the yoro feed ranker.",
+    "joinRule": "public",
+    "historyVisibility": "world-readable",
+    "convos": [
+      { "name": "ads-public", "kind": "public", "default": true, "description": "Public campaign index." }
+    ]
+  },
+  "runtimeType": "worker",
+  "build": {
+    "role": "thin-edge",
+    "businessLogic": "20-actors/magatama/py/src/pymagatama/ingest/ads.cljc",
+    "bpmn": "etzhayyim-root/00-contracts/bpmn/ai/gftd/ads"
+  }
+}
