@@ -14,8 +14,10 @@
     "APP_FRAMEWORK": "sveltekit-edge-bff",
     "APP_NANOID": "adsm4d5c",
     "APP_PERFORMER_TYPE": "service",
-    "APP_UI_TYPE": "appview",
-    "AGENTGATEWAY_MCP_ROUTER_URL": "https://mcp.gftd.ai/xrpc/ai.gftd.mcp.message"
+    "APP_UI_TYPE": "appview"
+    // AGENTGATEWAY_MCP_ROUTER_URL (mcp.gftd.ai) removed 2026-07 -- dead
+    // (retired org-wide), and this app has no deployed Cloudflare Worker
+    // to consume it anyway.
   },
   "routes": [
     {
