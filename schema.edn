@@ -2,4 +2,16 @@
 ;; :db/ident 属性定義のリスト。Datomic 固有キー(:db.install/_attribute 等)は使わない。
 ;; 手編集禁止 — 再生成すると上書きされる。
 
-[#:db{:ident :not-migrated-vendor-regulatory/body, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :readme/name, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :readme/note, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :readme/source, :valueType :db.type/string, :cardinality :db.cardinality/one}]
+[#:db{:ident :ads.runtime/business-logic-pointer, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :ads.runtime/dispatcher-pointer, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :ads.runtime/mcp-pointer, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :ads.runtime/note, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :ads.runtime/risingwave-pointer, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :ads.runtime/status, :valueType :db.type/keyword, :cardinality :db.cardinality/one}
+ #:db{:ident :ads.runtime/ui-pointer, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :not-migrated-vendor-regulatory/body, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :readme/name, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :readme/note, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :readme/runtime, :valueType :db.type/keyword, :cardinality :db.cardinality/one}
+ #:db{:ident :readme/source, :valueType :db.type/string, :cardinality :db.cardinality/one}
+ #:db{:ident :readme/status, :valueType :db.type/keyword, :cardinality :db.cardinality/one}]
