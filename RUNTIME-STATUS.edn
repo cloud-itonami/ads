@@ -1,0 +1,8 @@
+[{:db/id -1
+  :ads.runtime/status :retired
+  :ads.runtime/dispatcher-pointer "retired: dispatcher.gftd.ai"
+  :ads.runtime/mcp-pointer "retired: mcp.gftd.ai and AGENTGATEWAY_MCP_ROUTER_URL"
+  :ads.runtime/business-logic-pointer "retired: 20-actors/magatama/py/src/pymagatama/ingest/ads.py and the inconsistent .cljc manifest variant"
+  :ads.runtime/ui-pointer "retired: incomplete SvelteKit shell and generated .svelte-kit worker target"
+  :ads.runtime/risingwave-pointer "retired 2026-06-11: direct RisingWave state; any future counter design requires a separately approved D1 or kotoba owner"
+  :ads.runtime/note "This repository is provenance and governance only. It does not provide createCampaign, postSponsored, listCampaigns, HTTP routes, or a deploy command."}]

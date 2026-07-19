@@ -1,0 +1,53 @@
+{:migration/id :gftdcojp/ads-flat-west-retirement
+ :migration/status :canonical-retired-destination
+ :migration/recorded-at "2026-07-19"
+ :migration/source
+ {:repo "gftdcojp/ai-gftd-apps-gftdcojp"
+  :revision "202be482cedebf95b9dd95f51366f9a11799cca8"
+  :path "60-apps/ai-gftd-project-ads"
+  :tracked-files 12}
+ :migration/destination
+ {:repo "gftdcojp/ai-gftd-ads"
+  :path "orgs/gftdcojp/ai-gftd-ads"
+  :base-revision "ec54f6935bf5cc2ed55ad254c2f4e7ec7b93e055"
+  :ownership :canonical
+  :runtime :retired}
+ :migration/source-artifacts
+ [{:path "NOT-MIGRATED-VENDOR-REGULATORY.md.edn"
+   :classification :canonical-governance}
+  {:path "CLAUDE.md"
+   :classification :historical-provenance
+   :decision "Do not retain an operational README that advertises a deploy flow and TS Native Worker after every executable owner has retired. Its newer fact that direct RisingWave state retired on 2026-06-11 is preserved in RUNTIME-STATUS.edn."}
+  {:path "appview/ads-adsm4d5c/src/app.ts"
+   :classification :pruned-dead-dispatcher
+   :decision "Do not revive the dispatcher.gftd.ai proxy or its references to removed magatama Python business logic."}
+  {:path "appview/ads-adsm4d5c/svelte/src/routes/xrpc/[...path]/+server.ts"
+   :classification :pruned-dead-mcp
+   :decision "Do not revive the retired mcp.gftd.ai/AgentGateway MCP router bridge."}
+  {:paths ["appview/ads-adsm4d5c/svelte/package.json"
+           "appview/ads-adsm4d5c/svelte/src/app.html"
+           "appview/ads-adsm4d5c/svelte/src/routes/+page.svelte"
+           "appview/ads-adsm4d5c/svelte/svelte.config.js"
+           "appview/ads-adsm4d5c/svelte/tsconfig.json"
+           "appview/ads-adsm4d5c/svelte/vite.config.ts"]
+   :classification :pruned-orphan-ui-shell
+   :decision "Do not treat an undeployed presentation shell as an active application or migration target."}
+  {:path "appview/ads-adsm4d5c/wrangler.jsonc"
+   :classification :retired-broken-runtime-pointer
+   :decision "The configured .svelte-kit worker and asset directories do not exist in the canonical repository."}
+  {:path "appview/ads-adsm4d5c/magatama.jsonld"
+   :classification :retired-broken-runtime-pointer
+   :decision "The manifest points to absent src/app.cljc and retired 20-actors/magatama business logic."}]
+ :migration/invariants
+ {:deployable-runtime-present false
+  :dispatcher-revived false
+  :mcp-router-revived false
+  :svelte-shell-revived false
+  :retirement-facts-canonical-edn true
+  :root-drain-required true}
+ :migration/next
+ [{:action :replace-source-subtree-with-moved-edn
+   :owner "gftdcojp/ai-gftd-apps-gftdcojp"}
+  {:action :exact-repin
+   :owner "com-junkawasaki/root"
+   :project "ai-gftd-ads"}]}

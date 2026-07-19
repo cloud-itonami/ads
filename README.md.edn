@@ -1,1 +1,6 @@
-[{:db/id -1, :readme/name "ai-gftd-ads", :readme/source "orgs/gftdcojp/ai-gftd-apps-gftdcojp/60-apps/ai-gftd-project-ads", :readme/note "Split from ai-gftd-apps-gftdcojp for west-managed project ownership."}]
+[{:db/id -1
+  :readme/name "ai-gftd-ads"
+  :readme/source "orgs/gftdcojp/ai-gftd-apps-gftdcojp/60-apps/ai-gftd-project-ads"
+  :readme/note "Canonical west-owned record of the retired sponsored-post clearing-agent experiment. No deployable runtime is present."
+  :readme/status :retired
+  :readme/runtime :none}]
